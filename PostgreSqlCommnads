@@ -1,0 +1,29 @@
+-- run the docker image ' postgres '
+
+-- now when postgres is up and running, access it using CLI
+$ docker exec -it postgres-container psql -U postgres
+
+--check version 
+$ psql --version 
+
+--view all databases 
+$ psql -U postgres
+
+--create database 
+postgres# CREATE DATABASE snow_project;
+
+--create table
+postgres# CREATE TABLE blog_posts (
+    id SERIAL NOT NULL PRIMARY KEY,
+    json_data JSON
+);
+
+--populate with data of your choice, either from a source or yourself
+INSERT INTO blog_posts (id, json_data) VALUES 
+(1, '{"title": "How to Get Rid of Ants", "content": "Ants can be a real nuisance. Here are some effective ways to get rid of them.", "author": "Jane Doe", "date": "2024-07-01"}'),
+(2, '{"title": "Top 10 Pest Control Tips", "content": "Follow these top 10 tips to keep your home pest-free.", "author": "John Smith", "date": "2024-07-05"}'),
+(3, '{"title": "Dealing with Rodents", "content": "Rodents can cause a lot of damage. Learn how to handle them effectively.", "author": "Alice Johnson", "date": "2024-07-10"}'),
+(4, '{"title": "Preventing Termite Infestations", "content": "Termites can destroy your home. Here\''s how to prevent infestations.", "author": "Bob Brown", "date": "2024-07-15"}'),
+(5, '{"title": "Natural Pest Control Solutions", "content": "Explore natural and eco-friendly pest control solutions.", "author": "Emily White", "date": "2024-07-20"}');
+
+
